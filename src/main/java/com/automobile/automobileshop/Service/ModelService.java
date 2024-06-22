@@ -30,4 +30,9 @@ public class ModelService {
         modelRepository.deleteById(id);
     }
 
+    public Model getModelTypeByModelName(String modelName) {
+        return modelRepository.findByModelName(modelName)
+                .orElseThrow(() -> new RuntimeException("ModelType not found with modelName: " + modelName));
+    }
+
 }

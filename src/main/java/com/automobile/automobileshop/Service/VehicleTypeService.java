@@ -41,4 +41,9 @@ public class VehicleTypeService {
         vehicleTypeRepository.saveAll(types);
     }
 
+    public VehicleType getVehicleTypeByTypeName(String typeName) {
+        return vehicleTypeRepository.findByTypeName(typeName)
+                .orElseThrow(() -> new RuntimeException("VehicleType not found with typeName: " + typeName));
+    }
+
 }
